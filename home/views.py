@@ -1,14 +1,13 @@
-from django.http import HttpResponse
+from django.shortcuts import render
 
 def index(request):
-    return HttpResponse("Bem vindos ao nosso site")
+    return render(request, 'index.html')
 
 def sobre(request):
-    return HttpResponse("<h1>Sistema 1.0 desenvolvido por mim mesmo.</h1>")
-
+    return render(request, 'sobre.html')
 
 def contato(request):
-    return HttpResponse("Página de Contato")
+    return render(request, 'contato.html')
 
 def ajuda(request):
-    return HttpResponse("Página de Ajuda")
+    return render(request, 'ajuda.html')
