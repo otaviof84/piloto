@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block titulo %}
+{% if produto %}Editar Produto{% else %}Adicionar Produto{% endif %}
+{% endblock %}
+
+{% block conteudo %}
+<form method="post">
+    {% csrf_token %}
+
+    <div class="mb-3">
+        <label>Nome</label>
+        <input type="text" name="nome" class="form-control"
+               value="{{ produto.nome|default:'' }}">
+    </div>
+
+    <div class="mb-3">
+        <label>Preço</label>
+        <input type="text" name="preco" class="form-control"
+               value="{{ produto.preco|default:'' }}">
+    </div>
+
+    <button type="submit" class="btn btn-success">
+        {% if produto %}Salvar{% else %}Adicionar{% endif %}
+    </button>
+
+    <a href="{% url 'produtos' %}" class="btn btn-secondary">Voltar</a>
+</form>
+{% endblock %}
+
+

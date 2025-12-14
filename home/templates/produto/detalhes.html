@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block titulo %}
+Detalhes do Produto
+{% endblock %}
+
+{% block conteudo %}
+<p><strong>ID:</strong> {{ produto.id }}</p>
+<p><strong>Nome:</strong> {{ produto.nome }}</p>
+<p><strong>Preço:</strong> R$ {{ produto.preco }}</p>
+
+<a href="{% url 'produtos' %}" class="btn btn-secondary">Voltar</a>
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block titulo %}
+Excluir Produto
+{% endblock %}
+
+{% block conteudo %}
+<p>Tem certeza que deseja excluir o produto <strong>{{ produto.nome }}</strong>?</p>
+
+<a href="{% url 'produtos' %}" class="btn btn-danger">Sim, excluir</a>
+<a href="{% url 'produtos' %}" class="btn btn-secondary">Cancelar</a>
+{% endblock %}

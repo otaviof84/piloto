@@ -5,11 +5,19 @@ Lista de Produtos
 {% endblock %}
 
 {% block conteudo %}
+
+<div class="mb-3 text-end">
+    <a href="{% url 'adicionar_produto' %}" class="btn btn-success">
+        + Adicionar Produto
+    </a>
+</div>
+
 <table class="table table-striped">
     <tr>
         <th>ID</th>
         <th>Nome</th>
         <th>Preço</th>
+        <th>Ações</th>
     </tr>
 
     {% for item in lista %}
@@ -17,7 +25,20 @@ Lista de Produtos
         <td>{{ item.id }}</td>
         <td>{{ item.nome }}</td>
         <td>{{ item.preco }}</td>
-    </tr>
+        <td>
+        <a href="{% url 'detalhes_produto' item.id %}" class="btn btn-info btn-sm">
+            Detalhes
+        </a>
+
+        <a href="{% url 'editar_produto' item.id %}" class="btn btn-warning btn-sm">
+            Editar
+        </a>
+
+        <a href="{% url 'excluir_produto' item.id %}" class="btn btn-danger btn-sm">
+            Excluir
+        </a>
+    </td>
+</tr>
     {% endfor %}
 </table>
 {% endblock %}
